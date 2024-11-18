@@ -1,0 +1,375 @@
+<!-- --------blog html------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../static/scripts/tracking.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240229175223/1st.png"
+        type="image/x-icon">
+
+    <title>CodeBuddy 2.0</title>
+    <!-- ================ Box Icons ================ -->
+    <link href=
+'https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/blog.css">
+    <link href=
+"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- ===============Header=====================-->
+     
+    <header>
+        <!-- =============Nav============ -->
+         
+        <div class="nav container">
+
+            <img src=
+"../static/images/codebuddy.png" style="width: 8%; border-radius: 18px;"
+                id="gfg"  >
+                                    <!-- Centered Search Box -->
+                                    <div class="search-container">
+                                        <form class="search-box" action="/search" method="GET">
+                                            <input type="text" name="query" placeholder="Search..." required>
+                                            <button type="submit">
+                                                <i class="uil uil-search"></i> Search
+                                            </button>
+                                        </form>
+                                    </div>
+                    
+                    
+            <a href="{{ url_for('index') }}" class="login">
+                home
+            </a>
+        </div>
+    </header>
+    <!-- =========home============ -->
+    <section class="home" id="home">
+        <div class="home-text continer">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084312/contact.png"
+                style="width: 100%; height:200px; " alt="" >
+
+            <br>
+            <span class="home-subtitle">
+                Your source of great content
+            </span>
+        </div>
+    </section>
+    <!-- ======Post Filter========== -->
+    <div class="post-filter ">
+        <span class="filter-item active-filter" 
+            data-filter='all'>
+            All
+        </span>
+        <span class="filter-item" data-filter="mobile">
+            Development
+        </span>
+        <span class="filter-item" data-filter="design">
+            Language
+        </span>
+        <span class="filter-item" data-filter="tech">
+            Framework
+        </span>
+
+    </div>
+    <!-- =========Posts=========== -->
+    <section class="post container">
+        <!-- ========Post Box 1======== -->
+        <div class="post-box mobile ">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084344/op.png" 
+                class="post-img">
+            <h2 class="category">Development</h2>
+            <a href="#" 
+                target="_blank" class="post-title">
+                Web Developement Tutorial
+            </a>
+            <p class="post-decription">
+                Web development refers to the creat-ing, building, 
+                and maintaining of websites.It includes aspects such 
+                as web design, web publishing, web-programming, and 
+                database manage-ment. 
+            </p>
+        </div>
+        <!-- ========Post Box 2======== -->
+        <div class="post-box mobile">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084411/HTML-tutorial.jpg" alt=""
+                class="post-img">
+            <h2 class="category">Development</h2>
+            <a href="#" 
+                target="_blank" class="post-title">
+                HTML Tutorial
+            </a>
+            <p class="post-decription">
+                This HTML Tutorial is a Complete Guide for Beginners 
+                who want to learn HTML from basics. Here, we cover 
+                everything from HTML fundamentals such as Basic HTML 
+                Tags and their Attributes,
+            </p>
+        </div>
+        <!-- ========Post Box 3======== -->
+        <div class="post-box mobile">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084441/images.jpg" 
+                alt="CSS-Tutorial" class="post-img">
+            <h2 class="category">Development</h2>
+            <a href="#" 
+                target="_blank" class="post-title">
+                CSS Tutorial
+            </a>
+            <p class="post-decription">
+                This CSS Tutorial is designed for both beginners and 
+                experienced professionals. Here, you will learn CSS 
+                from basic to advanced concepts, such as properties, 
+                selectors, functions, media queries, and more. 
+            </p>
+            <!-- =========Profile========== -->
+
+        </div>
+
+    </section>
+    <section class="post container">
+        <!-- ========Post Box 4======== -->
+        <div class="post-box mobile">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084507/javascript.webp"
+                class="post-img">
+            <h2 class="category">Development</h2>
+            <a href="#" 
+                target="_blank" class="post-title">
+                JavaScript Tutorial
+            </a>
+            <p class="post-decription">
+                This JavaScript Tutorial is designed to help both 
+                beginners and experienced professionals master the 
+                fundamentals of JavaScript. This free tutorial covers 
+                all JavaScript concepts.
+            </p>
+        </div>
+        <!-- ========Post Box 5======== -->
+        <div class="post-box design">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084538/download.jpg"
+                class="post-img">
+            <h2 class="category">Language</h2>
+            <a href="#" 
+                target="_blank" class="post-title">
+                Python Tutorial
+            </a>
+            <p class="post-decription">
+                This Python Tutorial is very well suited for 
+                beginners and also for experienced programmers 
+                with other programming languages like C++ and Java. 
+            </p>
+        </div>
+        <!-- ========Post Box 6======== -->
+        <div class="post-box design">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084638/op.png" 
+                class="post-img">
+            <h2 class="category">Language</h2>
+            <a href="#" 
+                target="_blank" class="post-title">
+                Java Tutorial
+            </a>
+            <p class="post-decription">
+                This Java Tutorial is designed for beginners 
+                as well as experienced professionals. Whether 
+                you’re looking to learn the basics of Java or 
+                its advanced concepts, this free Java tutorial 
+                is the perfect resource for you.
+            </p>
+
+        </div>
+
+    </section>
+    <section class="post container">
+        <!-- ========Post Box 7======== -->
+        <div class="post-box design">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084705/c.jpg" 
+                class="post-img">
+            <h2 class="category">Language</h2>
+            <a href="#" 
+                target="_blank" class="post-title">
+                C++ Tutorial
+            </a>
+            <p class="post-decription">
+                C++ is the most used and most popular programming 
+                language developed by Bjarne Stroustrup. C++ is a 
+                high-level and object-oriented programming language.
+            </p>
+        </div>
+        <!-- ========Post Box 8======== -->
+        <div class="post-box tech">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084756/images.png"
+                target="_blank" class="post-img">
+            <h2 class="category">Framework</h2>
+            <a href="#" 
+                class="post-title">
+                Django Tutorial
+            </a>
+            <p class="post-decription">
+                Django is a Python-based web framework that allows 
+                you to quickly create efficient web applications. 
+                It is also called batteries included framework because 
+                Django provides built-in features for everything including 
+                Django Admin Interface, 
+            </p>
+        </div>
+        <!-- ========Post Box 9======== -->
+        <div class="post-box tech">
+            <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301084829/oooo.jpg"
+                class="post-img">
+            <h2 class="category">Framework</h2>
+            <a href="#" 
+                target="_blank" class="post-title">
+                React Tutorial
+            </a>
+            <p class="post-decription"> 
+                This free React tutorial is designed for people 
+                who prefer to learn by doing. So if you are a 
+                beginner or advanced React developer, this tutorial 
+                will guide you through all the fundamentals to build 
+                any React app.
+            </p>
+        </div>
+
+    </section>
+    <!-- =========footer========= -->
+    <div class="footer container">
+        <p> 
+            &#169; 
+            <strong style="color: green;">
+                CodeBuddy 2.0
+            </strong> 
+            Right Reserved 
+        </p>
+        
+    </div>
+
+    <!-- =============JQuery Link========== -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" 
+        crossorigin="anonymous">
+    </script>
+    <!-- =======================Link to Js=============== -->
+    <script src="./script.js"></script>
+    <script>
+        // =======Filter js==============
+        $(document).ready(function () {
+            $('.filter-item').click(function () {
+                const value = $(this).attr("data-filter");
+                if (value == "all") {
+                    $(".post-box").show("1000");
+                } else {
+                    $(".post-box")
+                        .not("." + value)
+                        .hide("1000");
+                    $(".post-box")
+                        .filter("." + value)
+                        .show("1000");
+                }
+
+            });
+            $(".filter-item").click(function () {
+                $(this).addClass("active-filter").
+                siblings().removeClass("active-filter");
+            });
+        });
+
+        const header = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+            header.classList.
+            toggle("shadow", window.scrollY > 0);
+        });
+    </script>
+
+    <!-- ================================= User Behaviour Tracking ===================== -->
+    <script>
+        class UserTracker {
+            constructor() {
+                this.clicks = 0;
+                this.startTime = Date.now();
+                this.lastSyncTime = Date.now();
+                this.syncInterval = 5000; // Sync every 5 seconds
+                this.setupEventListeners();
+                this.startPeriodicSync();
+            }
+
+            setupEventListeners() {
+                // Track clicks
+                document.addEventListener('click', () => {
+                    this.clicks++;
+                });
+
+                // Track when user leaves the page
+                window.addEventListener('beforeunload', () => {
+                    this.syncData(true);
+                });
+            }
+
+            startPeriodicSync() {
+                setInterval(() => {
+                    this.syncData();
+                }, this.syncInterval);
+            }
+
+            async syncData(isFinal = false) {
+                const currentTime = Date.now();
+                const timeSpent = Math.floor((currentTime - this.lastSyncTime) / 1000); // Convert to seconds
+                
+                if (timeSpent === 0 && this.clicks === 0 && !isFinal) {
+                    return; // No new data to sync
+                }
+
+                const currentPath = window.location.pathname;
+                const page = currentPath === '/' ? 'index' : currentPath.substring(1);
+
+                try {
+                    const response = await fetch('/track_interaction', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            page: page,
+                            timeSpent: timeSpent,
+                            clicks: this.clicks,
+                        })
+                    });
+
+                    if (response.ok) {
+                        // Reset counters after successful sync
+                        this.clicks = 0;
+                        this.lastSyncTime = currentTime;
+                    }
+                } catch (error) {
+                    console.error('Error syncing tracking data:', error);
+                }
+            }
+        }
+
+        // Initialize tracker when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.userTracker = new UserTracker();
+        });
+    </script>
+
+</body>
+
+</html>

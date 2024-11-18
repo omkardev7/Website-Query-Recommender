@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBuddy 2.0</title>
+    <link rel="stylesheet" href="../static/dsa.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="container nav__container">
+            <a href="{{ url_for('index') }}">
+                <img alt="" src="../static/images/codebuddy.png" style="width: 50%; border-radius: 18px;">
+            </a>
+            <ul class="nav__menu">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('questions') }}">Questions</a></li>
+                
+                <li><a href="{{ url_for('courses') }}">Courses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container header__container">
+            <div class="header__left">
+                <h1>DSA to Development: A Complete Guide</h1>
+                <p>Elevate your programming skills with a strong foundation in Data Structures and Algorithms (DSA) while transitioning to development seamlessly.</p>
+                <a href="#content" class="btn btn-primary">Dive In</a>
+            </div>
+            <div class="header__right">
+                <div class="header__right-image">
+                    <img src="../static/images/dsa image.png" alt="DSA and Development Illustration">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Guide Content Section -->
+    <section id="content" class="categories">
+        <div class="container">
+            <h2>Your Journey Through DSA and Development</h2>
+            <div class="categories__container">
+                <!-- Left Content -->
+                <div class="categories__left">
+                    <h3>What You'll Master:</h3>
+                    <p>This guide takes you from the basics of programming logic to building robust applications. You'll explore:</p>
+                    <ul>
+                        <li>Core Data Structures and Their Real-world Usage</li>
+                        <li>Optimized Algorithms for Problem Solving</li>
+                        <li>Development Practices for Scalable Applications</li>
+                        <li>Best Practices to Bridge the Gap Between DSA and Development</li>
+                    </ul>
+                </div>
+
+                <!-- Right Content -->
+                <div class="categories__right">
+                    <div class="category">
+                        <div class="category__icon"><i class="fas fa-folder-open"></i></div>
+                        <h5>Basic Data Structures</h5>
+                        <p>Explore arrays, stacks, queues, and linked lists to understand how data is organized in programming.</p>
+                    </div>
+                    <div class="category">
+                        <div class="category__icon"><i class="fas fa-project-diagram"></i></div>
+                        <h5>Advanced Data Structures</h5>
+                        <p>Master trees, heaps, graphs, and tries to solve complex real-world problems efficiently.</p>
+                    </div>
+                    <div class="category">
+                        <div class="category__icon"><i class="fas fa-brain"></i></div>
+                        <h5>Algorithmic Paradigms</h5>
+                        <p>Understand dynamic programming, greedy methods, divide and conquer, and backtracking.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-depth DSA Topics -->
+    <section class="dsa-topics">
+        <div class="container">
+            <h2>Deep Dive Into DSA</h2>
+            <div class="topics__grid">
+                <div class="topic">
+                    <h4>Sorting and Searching</h4>
+                    <p>Efficiently arrange data using algorithms like Merge Sort, Quick Sort, and Binary Search.</p>
+                </div>
+                <div class="topic">
+                    <h4>Graph Algorithms</h4>
+                    <p>Solve connectivity problems using BFS, DFS, Dijkstra's, and Kruskal's algorithms.</p>
+                </div>
+                <div class="topic">
+                    <h4>Dynamic Programming</h4>
+                    <p>Optimize solutions for complex problems using techniques like memoization and tabulation.</p>
+                </div>
+                <div class="topic">
+                    <h4>String Algorithms</h4>
+                    <p>Understand pattern matching, text processing, and algorithms like KMP and Rabin-Karp.</p>
+                </div>
+                <div class="topic">
+                    <h4>Bit Manipulation</h4>
+                    <p>Manipulate binary data to solve problems related to sets, parity, and optimizations.</p>
+                </div>
+                <div class="topic">
+                    <h4>Real-world Applications</h4>
+                    <p>Learn how DSA is applied in areas like databases, web development, and machine learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- From DSA to Development -->
+    <section class="transition-to-dev">
+        <div class="container">
+            <h2>From DSA to Full-Stack Development</h2>
+            <p>Bridge the gap between problem-solving and application building with these steps:</p>
+            <ol>
+                <li><strong>Understand System Design:</strong> Learn about scalability, distributed systems, and database optimization.</li>
+                <li><strong>Master Front-End Development:</strong> Dive into HTML, CSS, JavaScript, and frameworks like React.</li>
+                <li><strong>Back-End Mastery:</strong> Explore server-side programming using Node.js, Python, or Java with database management.</li>
+                <li><strong>Integrate DSA:</strong> Use DSA knowledge to write efficient, optimized code in real-world applications.</li>
+                <li><strong>Practice:</strong> Build projects, participate in coding challenges, and contribute to open-source to hone your skills.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer__container">
+            
+        </div>
+        <div class="footer__copyright">
+            <small>&copy; CodeBuddy 2.0. All Rights Reserved.</small>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- ================================= User Behaviour Tracking ===================== -->
+    <script>
+        class UserTracker {
+            constructor() {
+                this.clicks = 0;
+                this.startTime = Date.now();
+                this.lastSyncTime = Date.now();
+                this.syncInterval = 5000; // Sync every 5 seconds
+                this.setupEventListeners();
+                this.startPeriodicSync();
+            }
+
+            setupEventListeners() {
+                // Track clicks
+                document.addEventListener('click', () => {
+                    this.clicks++;
+                });
+
+                // Track when user leaves the page
+                window.addEventListener('beforeunload', () => {
+                    this.syncData(true);
+                });
+            }
+
+            startPeriodicSync() {
+                setInterval(() => {
+                    this.syncData();
+                }, this.syncInterval);
+            }
+
+            async syncData(isFinal = false) {
+                const currentTime = Date.now();
+                const timeSpent = Math.floor((currentTime - this.lastSyncTime) / 1000); // Convert to seconds
+                
+                if (timeSpent === 0 && this.clicks === 0 && !isFinal) {
+                    return; // No new data to sync
+                }
+
+                const currentPath = window.location.pathname;
+                const page = currentPath === '/' ? 'index' : currentPath.substring(1);
+
+                try {
+                    const response = await fetch('/track_interaction', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            page: page,
+                            timeSpent: timeSpent,
+                            clicks: this.clicks,
+                        })
+                    });
+
+                    if (response.ok) {
+                        // Reset counters after successful sync
+                        this.clicks = 0;
+                        this.lastSyncTime = currentTime;
+                    }
+                } catch (error) {
+                    console.error('Error syncing tracking data:', error);
+                }
+            }
+        }
+
+        // Initialize tracker when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.userTracker = new UserTracker();
+        });
+    </script>
+</body>
+</html>

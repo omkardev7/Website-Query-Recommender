@@ -1,0 +1,282 @@
+<!-- --------------------------- courses.html ------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../static/scripts/tracking.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=
+"width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240229175223/1st.png"
+        type="image/x-icon">
+    <title>CodeBuddy 2.0</title>
+
+    <!------------Iconscout CDN--------------------->
+    <link rel="stylesheet" href=
+"https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <link rel="shortcut icon" href=
+"https://i.ibb.co/LnKMFN8/geeksforgeeks-logo-removebg-preview.png"
+        type="image/x-icon">
+    <link rel="stylesheet" href="../static/style.css">
+
+    <!-- --------------Google Fonts--------------------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href=
+"https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- ----------------Swiper JS------------------------------ -->
+    <link rel="stylesheet" href=
+"https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="container nav__container">
+            <a href="./index.html">
+                <img alt="" src="../static/images/codebuddy.png" style="width: 50%; border-radius: 18px;">
+
+            </a>
+                                <!-- Centered Search Box -->
+                                <div class="search-container">
+                                    <form class="search-box" action="/search" method="GET">
+                                        <input type="text" name="query" placeholder="Search..." required>
+                                        <button type="submit">
+                                            <i class="uil uil-search"></i> Search
+                                        </button>
+                                    </form>
+                                </div>
+                
+                
+            <ul class="nav__menu">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                
+                <li><a href="{{ url_for('courses') }}">Courses</a></li>
+                
+            </ul>
+            <button id="open-menu-btn">
+                <i class="uil uil-bars"></i>
+            </button>
+            <button id="close-menu-btn">
+                <i class="uil uil-multiply"></i>
+            </button>
+        </div>
+    </nav>
+    <!-- ======================End Navbar================== -->
+    <br><br>
+    <section class="courses" style="margin-top: -2px;">
+        <div class="container courses__container">
+
+
+            <article class="course">
+                <div class="course__image">
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301085515/jk.webp" alt="">
+                </div>
+                <div class="course__info">
+                    <h4 style="text-align: justify;">
+                        Full Stack Development with React & Node JS - Live
+                    </h4>
+                    <p style="text-align: justify;">
+                        "CodeBuddy 2.0 offers a 90% refund if 
+                        you complete 90% of the course within 90 days."
+                    </p>
+                    <a href="{{ url_for('fullstack') }}" class="btn btn-primary">Explore</a>
+
+                </div>
+            </article>
+
+            <article class="course">
+                <div class="course__image">
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301085613/ooo.webp" alt="">
+                </div>
+                <div class="course__info">
+                    <h4 style="text-align: justify;">
+                        Data Structures & Algorithms in Python - Self Paced
+                    </h4>
+                    <p style="text-align: justify;">
+                        "CodeBuddy 2.0 offers a 90% refund if you 
+                        complete 90% of the course within 90 days."
+                    </p>
+                    <a href="{{ url_for('dsa_guide') }}" class="btn btn-primary">Explore</a>
+                    
+                </div>
+            </article>
+
+
+            <article class="course">
+                <div class="course__image">
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301085708/jjjj.webp" alt="">
+                </div>
+                <div class="course__info">
+                    <h4 style="text-align: justify;">
+                        Master Java Programming - Complete Beginner to Advanced
+                    </h4>
+                    <p style="text-align: justify;">
+                        "CodeBuddy 2.0 offers a 90% refund if you 
+                        complete 90% of the course within 90 days."
+                    </p>
+                    <a href="{{ url_for('java') }}" class="btn btn-primary">Explore</a>
+                </div>
+            </article>
+
+            <article class="course">
+                <div class="course__image">
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301085740/iuyt.webp" alt="">
+                </div>
+                <div class="course__info">
+                    <h4 style="text-align: justify;">
+                        Complete Guide to Software Testing and Automation
+                    </h4>
+                    <p style="text-align: justify;">
+                        "CodeBuddy 2.0 offers a 90% refund if you 
+                        complete 90% of the course within 90 days."
+                    </p>
+                    <a href="{{ url_for('soft_test') }}" class="btn btn-primary">Explore</a>
+                </div>
+            </article>
+
+            <article class="course">
+                <div class="course__image">
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301085810/eight.webp" alt="">
+                </div>
+                <div class="course__info">
+                    <h4 style="text-align: justify;">
+                        Complete Interview Preparation
+                    </h4>
+                    <p style="text-align: justify;">
+                        "CodeBuddy 2.0 offers a 90% refund if you 
+                        complete 90% of the course within 90 days."
+                    </p>
+                    <a href=
+"#"
+                        class="btn btn-primary">
+                        Explore
+                    </a>
+                </div>
+            </article>
+
+            <article class="course">
+                <div class="course__image">
+                    <img src=
+"https://media.geeksforgeeks.org/wp-content/uploads/20240301085834/yttt.webp" alt="">
+                </div>
+                <div class="course__info">
+                    <h4 style="text-align: justify;">
+                        JAVA Backend Development - Live
+                    </h4>
+                    <p style="text-align: justify;">
+                        "CodeBuddy 2.0 offers a 90% refund if you 
+                        complete 90% of the course within 90 days."
+                    </p>
+                    <a href=
+"#"
+                        class="btn btn-primary">
+                        Explore
+                    </a>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- =================================Footer===================== -->
+
+    <footer>
+        <div class="footer__copyright">
+            <small> 
+                <strong style="color: green;">
+                    CodeBuddy 2.0
+                </strong> 
+                &copy; All Right Reserved
+            </small>
+        </div>
+    </footer>
+
+    <!-- ============================End Footer=========================== -->
+
+    <script src=
+"https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+    </script>
+    <script src="./script.js"></script>
+
+    <!-- ================================= User Behaviour Tracking ===================== -->
+    <script>
+        class UserTracker {
+            constructor() {
+                this.clicks = 0;
+                this.startTime = Date.now();
+                this.lastSyncTime = Date.now();
+                this.syncInterval = 5000; // Sync every 5 seconds
+                this.setupEventListeners();
+                this.startPeriodicSync();
+            }
+
+            setupEventListeners() {
+                // Track clicks
+                document.addEventListener('click', () => {
+                    this.clicks++;
+                });
+
+                // Track when user leaves the page
+                window.addEventListener('beforeunload', () => {
+                    this.syncData(true);
+                });
+            }
+
+            startPeriodicSync() {
+                setInterval(() => {
+                    this.syncData();
+                }, this.syncInterval);
+            }
+
+            async syncData(isFinal = false) {
+                const currentTime = Date.now();
+                const timeSpent = Math.floor((currentTime - this.lastSyncTime) / 1000); // Convert to seconds
+                
+                if (timeSpent === 0 && this.clicks === 0 && !isFinal) {
+                    return; // No new data to sync
+                }
+
+                const currentPath = window.location.pathname;
+                const page = currentPath === '/' ? 'index' : currentPath.substring(1);
+
+                try {
+                    const response = await fetch('/track_interaction', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            page: page,
+                            timeSpent: timeSpent,
+                            clicks: this.clicks,
+                        })
+                    });
+
+                    if (response.ok) {
+                        // Reset counters after successful sync
+                        this.clicks = 0;
+                        this.lastSyncTime = currentTime;
+                    }
+                } catch (error) {
+                    console.error('Error syncing tracking data:', error);
+                }
+            }
+        }
+
+        // Initialize tracker when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.userTracker = new UserTracker();
+        });
+    </script>
+</body>
+
+</html>

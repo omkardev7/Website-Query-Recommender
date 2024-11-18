@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Guide to Software Testing and Automation</title>
+    <link rel="stylesheet" href="../static/dsa.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav__container container">
+            <a href="{{ url_for('index') }}">
+                <img alt="" src="../static/images/codebuddy.png" style="width: 50%; border-radius: 18px;">
+
+            </a>
+            <ul class="nav__menu">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('questions') }}">FAQs</a></li>
+                <li><a href="{{ url_for('courses') }}">Courses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="header__container container">
+            <div class="header__left">
+                <h1>Complete Guide to Software Testing and Automation</h1>
+                <p>
+                    Learn everything about Software Testing from manual to automation. 
+                    Understand testing strategies, tools, and frameworks used in the industry to ensure quality software.
+                </p>
+                <a href="#" class="btn btn-primary">Start Your Testing Journey</a>
+            </div>
+            <div class="header__right-image">
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- What You'll Learn Section -->
+    <section class="categories">
+        <div class="categories__container container">
+            <div class="categories__left">
+                <h3>What You’ll Learn</h3>
+                <ul>
+                    <li>Foundations of Software Testing and QA</li>
+                    <li>Manual Testing Techniques</li>
+                    <li>Introduction to Test Automation and Tools</li>
+                    <li>Using Selenium WebDriver and JUnit for Automation</li>
+                    <li>CI/CD in Testing with Jenkins</li>
+                    <li>Performance and Load Testing with JMeter</li>
+                    <li>Best Practices in Software Testing</li>
+                </ul>
+            </div>
+            <div class="categories__right">
+                <div class="category">
+                    <div class="category__icon">📝</div>
+                    <h5>Manual Testing</h5>
+                </div>
+                <div class="category">
+                    <div class="category__icon">🤖</div>
+                    <h5>Automation Testing</h5>
+                </div>
+                <div class="category">
+                    <div class="category__icon">🚀</div>
+                    <h5>Performance Testing</h5>
+                </div>
+                <div class="category">
+                    <div class="category__icon">🔄</div>
+                    <h5>CI/CD and Testing</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Testing Topics Section -->
+    <section class="dsa-topics">
+        <div class="container">
+            <h2>Software Testing Topics</h2>
+            <div class="topics__grid">
+                <div class="topic">
+                    <h4>Test Case Design</h4>
+                    <p>Learn how to design effective test cases for manual and automated testing.</p>
+                </div>
+                <div class="topic">
+                    <h4>Automation Frameworks</h4>
+                    <p>Understand the building blocks of automation frameworks like Selenium and JUnit.</p>
+                </div>
+                <div class="topic">
+                    <h4>API Testing</h4>
+                    <p>Master testing RESTful APIs using Postman and other tools.</p>
+                </div>
+                <div class="topic">
+                    <h4>Continuous Integration</h4>
+                    <p>Learn to integrate testing into CI/CD pipelines with tools like Jenkins.</p>
+                </div>
+                <div class="topic">
+                    <h4>Performance Testing</h4>
+                    <p>Learn to run load tests and analyze performance with JMeter.</p>
+                </div>
+                <div class="topic">
+                    <h4>Test Reporting</h4>
+                    <p>Learn how to generate and interpret test reports using various tools.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transition to Development Concepts -->
+    <section class="transition-to-dev">
+        <div class="container">
+            <h2>Key Testing Skills to Master</h2>
+            <ol>
+                <li>Unit Testing with JUnit and TestNG</li>
+                <li>Integration Testing</li>
+                <li>Advanced Selenium: Page Object Model, Data-Driven Testing</li>
+                <li>Working with Test Management Tools like Jira and TestRail</li>
+                <li>Security and Penetration Testing</li>
+                <li>Automation in Mobile Testing with Appium</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer__copyright">
+            &copy; CodeBuddy. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- ================================= User Behaviour Tracking ===================== -->
+    <script>
+        class UserTracker {
+            constructor() {
+                this.clicks = 0;
+                this.startTime = Date.now();
+                this.lastSyncTime = Date.now();
+                this.syncInterval = 5000; // Sync every 5 seconds
+                this.setupEventListeners();
+                this.startPeriodicSync();
+            }
+
+            setupEventListeners() {
+                // Track clicks
+                document.addEventListener('click', () => {
+                    this.clicks++;
+                });
+
+                // Track when user leaves the page
+                window.addEventListener('beforeunload', () => {
+                    this.syncData(true);
+                });
+            }
+
+            startPeriodicSync() {
+                setInterval(() => {
+                    this.syncData();
+                }, this.syncInterval);
+            }
+
+            async syncData(isFinal = false) {
+                const currentTime = Date.now();
+                const timeSpent = Math.floor((currentTime - this.lastSyncTime) / 1000); // Convert to seconds
+                
+                if (timeSpent === 0 && this.clicks === 0 && !isFinal) {
+                    return; // No new data to sync
+                }
+
+                const currentPath = window.location.pathname;
+                const page = currentPath === '/' ? 'index' : currentPath.substring(1);
+
+                try {
+                    const response = await fetch('/track_interaction', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            page: page,
+                            timeSpent: timeSpent,
+                            clicks: this.clicks,
+                        })
+                    });
+
+                    if (response.ok) {
+                        // Reset counters after successful sync
+                        this.clicks = 0;
+                        this.lastSyncTime = currentTime;
+                    }
+                } catch (error) {
+                    console.error('Error syncing tracking data:', error);
+                }
+            }
+        }
+
+        // Initialize tracker when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.userTracker = new UserTracker();
+        });
+    </script>
+</body>
+</html>

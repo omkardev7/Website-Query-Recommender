@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeBuddy 2.0</title>
+    <link rel="stylesheet" href="../static/dsa.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav__container container">
+            <a href="{{ url_for('index') }}">
+                <img alt="" src="../static/images/codebuddy.png" style="width: 50%; border-radius: 18px;">
+            </a>
+            <ul class="nav__menu">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('questions') }}">FAQs</a></li>
+                <li><a href="{{ url_for('courses') }}">Courses</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="header__container container">
+            <div class="header__left">
+                <h1>Full Stack Development<br> with React & Node.js</h1>
+                <p>
+                    Master the art of creating scalable web applications using React for the frontend 
+                    and Node.js for the backend. Dive into hands-on projects, build real-world solutions, 
+                    and become a job-ready developer.
+                </p>
+                <a href="#enroll" class="btn btn-primary">Get Started Now</a>
+            </div>
+            <div class="header__right-image">
+                <img src="../static/images/fullstack.jpg" alt="Full Stack Development">
+            </div>
+        </div>
+    </header>
+
+    <!-- What You'll Learn Section -->
+    <section class="categories">
+        <div class="categories__container container">
+            <div class="categories__left">
+                <h3>What You’ll Learn</h3>
+                <ul>
+                    <li>How to create stunning and interactive frontends using React.js</li>
+                    <li>Build efficient backend systems with Node.js, Express, and MongoDB</li>
+                    <li>Understand and implement RESTful APIs</li>
+                    <li>State management with Redux and Context API</li>
+                    <li>Authentication and Authorization techniques (JWT, OAuth)</li>
+                    <li>Deployment strategies using cloud platforms</li>
+                </ul>
+            </div>
+            <div class="categories__right">
+                <div class="category">
+                    <div class="category__icon">💻</div>
+                    <h5>Frontend with React.js</h5>
+                </div>
+                <div class="category">
+                    <div class="category__icon">🛠</div>
+                    <h5>Backend with Node.js</h5>
+                </div>
+                <div class="category">
+                    <div class="category__icon">🗄</div>
+                    <h5>Database with MongoDB</h5>
+                </div>
+                <div class="category">
+                    <div class="category__icon">🚀</div>
+                    <h5>Full Stack Integration</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Stack Topics Section -->
+    <section class="dsa-topics">
+        <div class="container">
+            <h2>Full Stack Development Topics</h2>
+            <div class="topics__grid">
+                <div class="topic">
+                    <h4>React Fundamentals</h4>
+                    <p>Learn JSX, components, props, and state management.</p>
+                </div>
+                <div class="topic">
+                    <h4>Node.js Essentials</h4>
+                    <p>Understand the core of Node.js and its asynchronous nature.</p>
+                </div>
+                <div class="topic">
+                    <h4>Express Framework</h4>
+                    <p>Set up RESTful APIs and middleware to serve dynamic content.</p>
+                </div>
+                <div class="topic">
+                    <h4>Database Integration</h4>
+                    <p>Build schemas and manage data using MongoDB or other databases.</p>
+                </div>
+                <div class="topic">
+                    <h4>Authentication</h4>
+                    <p>Secure your apps with authentication mechanisms like JWT.</p>
+                </div>
+                <div class="topic">
+                    <h4>Real-time Applications</h4>
+                    <p>Implement real-time features using WebSockets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Full Stack Concepts -->
+    <section class="transition-to-dev">
+        <div class="container">
+            <h2>Advanced Concepts to Master</h2>
+            <ol>
+                <li>Optimizing React Applications for performance</li>
+                <li>Server-side rendering (SSR) and Next.js</li>
+                <li>Microservices architecture with Node.js</li>
+                <li>Cloud deployment using platforms like AWS and Vercel</li>
+                <li>Building Progressive Web Apps (PWAs)</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer__container container">
+        </div>
+        <div class="footer__copyright">
+            &copy; CodeBuddy. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- ================================= User Behaviour Tracking ===================== -->
+    <script>
+        class UserTracker {
+            constructor() {
+                this.clicks = 0;
+                this.startTime = Date.now();
+                this.lastSyncTime = Date.now();
+                this.syncInterval = 5000; // Sync every 5 seconds
+                this.setupEventListeners();
+                this.startPeriodicSync();
+            }
+
+            setupEventListeners() {
+                // Track clicks
+                document.addEventListener('click', () => {
+                    this.clicks++;
+                });
+
+                // Track when user leaves the page
+                window.addEventListener('beforeunload', () => {
+                    this.syncData(true);
+                });
+            }
+
+            startPeriodicSync() {
+                setInterval(() => {
+                    this.syncData();
+                }, this.syncInterval);
+            }
+
+            async syncData(isFinal = false) {
+                const currentTime = Date.now();
+                const timeSpent = Math.floor((currentTime - this.lastSyncTime) / 1000); // Convert to seconds
+                
+                if (timeSpent === 0 && this.clicks === 0 && !isFinal) {
+                    return; // No new data to sync
+                }
+
+                const currentPath = window.location.pathname;
+                const page = currentPath === '/' ? 'index' : currentPath.substring(1);
+
+                try {
+                    const response = await fetch('/track_interaction', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            page: page,
+                            timeSpent: timeSpent,
+                            clicks: this.clicks,
+                        })
+                    });
+
+                    if (response.ok) {
+                        // Reset counters after successful sync
+                        this.clicks = 0;
+                        this.lastSyncTime = currentTime;
+                    }
+                } catch (error) {
+                    console.error('Error syncing tracking data:', error);
+                }
+            }
+        }
+
+        // Initialize tracker when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.userTracker = new UserTracker();
+        });
+    </script>
+</body>
+</html>

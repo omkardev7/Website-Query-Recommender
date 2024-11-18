@@ -1,0 +1,99 @@
+<!-- ================= login.html============ -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Login and Registration Form in HTML | GFG
+    </title>
+    <meta name="viewport" content=
+"width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/login.css">
+</head>
+
+<body>
+
+
+    <div class="wrapper">
+
+        <div class="title-text">
+            <div class="title login"> 
+                <a href="{{ url_for('index') }}" class="title login"
+                    style="text-decoration: none;">
+                    CodeBuddy
+                </a>
+            </div>
+            <div class="title signup"> 
+                <a href="{{ url_for('index') }}" class="title login"
+                    style="text-decoration: none;">
+                    CodeBuddy
+                </a>
+            </div>
+            <br /><br />
+        </div>
+        <div class="form-container">
+            <div class="slide-controls">
+                <input type="radio" name="slide" id="login" checked />
+                <input type="radio" name="slide" id="signup" />
+                <label for="login" class="slide login">
+                    Sign In
+                </label>
+                <label for="signup" class="slide signup">
+                    Sign up
+                </label>
+                <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+                <form action="#" class="login">
+                    <div class="field">
+                        <label for="">Email Address</label>
+                        <input type="text" placeholder="" required />
+                    </div>
+                    <br />
+                    <div class="field">
+                        <label>Password</label>
+                        <input type="password" placeholder="" required />
+                    </div>
+                    <br />
+                    <div class="field btn">
+                        <input type="submit" value="Login" />
+                    </div>
+                    <div class="signup-link">
+                        Don't Have Account? 
+                        <a href="">Signup</a>
+                    </div>
+                </form>
+                <form action="#" class="signup">
+                    <div class="field">
+                        <label for="">Full Name</label>
+                        <input type="text" placeholder="" required />
+                    </div>
+                    <br />
+                    <div class="field">
+                        <label for="">Email Address</label>
+                        <input type="email" placeholder="" required />
+                    </div>
+                    <br />
+                    <div class="field">
+                        <label for="">Password</label>
+                        <input type="password" placeholder="" required />
+                    </div>
+                    <br />
+                    <div class="field btn">
+                        <input type="submit" value="Signup" />
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./login.js">
+
+    </script>
+</body>
+
+</html>
