@@ -5,22 +5,16 @@ from flask import Flask, render_template, jsonify, request, session, g
 from dotenv import load_dotenv
 import os
 import requests
+from predefined_metadata import page_metadata
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 load_dotenv()
 groq_api_key = os.getenv("GROQ_API_KEY")
 
-# Predefined page metadata
-page_metadata = {
-    "index": {"topics": ["Introduction to CodeBuddy 2.0", "Features of CodeBuddy 2.0", "Courses Offered on CodeBuddy 2.0","Refund Policies and Incentives"], "importance": 1},
-    "blog": {"topics": ["AI", "blockchain", "development"], "importance": 3},
-    "courses": {"topics": ["blockchain", "DSA", "java", "software testing"], "importance": 5},
-    "dsa-guide": {"topics": ["stack", "array", "python"], "importance": 4},
-    "fullstack": {"topics": ["react", "node.js", "mongodb", "express", "native"], "importance": 4},
-    "java": {"topics": ["java backend development"], "importance": 2},
-    "soft_test": {"topics": ["manual testing", "unit testing", "performance testing"], "importance": 3}
-}
+# Predefined page metadata topics
+page_metadata = page_metadata
+
 
 # Initialize SQLite database for tracking
 DATABASE = 'tracking.db'
