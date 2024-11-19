@@ -10,7 +10,7 @@ from rag import rag_pipeline
 from predefined_metadata import page_metadata
 
 app = Flask(__name__)
-app.secret_key = 'supersecretkey'
+app.secret_key = os.getenv('SECRET_KEY')
 load_dotenv()
 groq_api_key = os.getenv("GROQ_API_KEY")
 

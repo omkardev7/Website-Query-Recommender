@@ -1,3 +1,11 @@
 python-dotenv
 flask
+sqlite3
 request
+dotenv
+langchain
+langchain-groq
+huggingface-hub
+sentence-transformers
+faiss-cpu
+werkzeug

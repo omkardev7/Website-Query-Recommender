@@ -25,7 +25,7 @@ page_metadata = {
             "Java Basics to Advanced: A Complete Programming Journey",
             "Learn Python Programming: From Zero to Hero"
         ],
-        "importance": 3
+        "importance": 4
     },
     "courses": {
         "topics": [
@@ -39,7 +39,7 @@ page_metadata = {
             "Refund Policy Explained",
             "Career Paths in Technology: Which Course to Choose?"
         ],
-        "importance": 5
+        "importance": 2
     },
     "dsa-guide": {
         "topics": [
@@ -51,7 +51,7 @@ page_metadata = {
             "How to Earn a DSA Certificate",
             "Career Opportunities with DSA Knowledge"
         ],
-        "importance": 4
+        "importance": 3
     },
     "fullstack": {
         "topics": [
@@ -64,7 +64,7 @@ page_metadata = {
             "How to Earn a Fullstack Certificate",
             "Career Paths for Full Stack Developers"
         ],
-        "importance": 4
+        "importance": 3
     },
     "java": {
         "topics": [
@@ -78,7 +78,7 @@ page_metadata = {
             "Earn a Java Programming Certificate",
             "Job Opportunities for Java Developers"
         ],
-        "importance": 2
+        "importance": 3
     },
     "soft_test": {
         "topics": [

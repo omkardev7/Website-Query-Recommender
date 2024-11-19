@@ -36,8 +36,8 @@ class RAGPipeline:
         
         # Custom prompt template
         self.prompt_template = """
-        Use the following context to answer the question precisely. 
-        If the answer is not in the context, say "I couldn't find the answer in the uploaded document."
+        You are an expert designed to assist with answering questions related to the Codebuddy 2.0 learning platform, which offers programming courses, software testing tutorials, data structures, algorithms, and additional resources such as articles, blogs, and other educational materials.
+        Please refer to the context provided below to answer the question as accurately and specifically as possible. If the answer to the question is not found in the context, respond with: "I couldn't find the answer in the uploaded document."
 
         Context:
         {context}
