@@ -1,3 +1,4 @@
+#app.py
 import time
 from datetime import datetime
 import sqlite3
@@ -5,6 +6,7 @@ from flask import Flask, render_template, jsonify, request, session, g
 from dotenv import load_dotenv
 import os
 import requests
+from rag import rag_pipeline
 from predefined_metadata import page_metadata
 
 app = Flask(__name__)
@@ -108,6 +110,40 @@ def track_interaction():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+# Routes for PDF upload and search
+@app.route('/upload_pdf', methods=['POST'])
+def upload_pdf():
+    if 'file' not in request.files:
+        return jsonify({"error": "No file uploaded"}), 400
+    
+    file = request.files['file']
+    if file.filename == '':
+        return jsonify({"error": "No selected file"}), 400
+    
+    if file and file.filename and file.filename.lower().endswith('.pdf'):
+        try:
+            filename = rag_pipeline.upload_and_process_pdf(file)
+            return jsonify({"message": f"PDF {filename} uploaded and processed successfully"})
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+    
+    return jsonify({"error": "Invalid file type. Please upload a PDF."}), 400
+
+@app.route('/search', methods=['POST'])
+def search_query():
+    data = request.json
+    if data is None:
+        return jsonify({"error": "No data provided"}), 400
+
+    query = data.get('query', '')
+    
+    if not query:
+        return jsonify({"error": "No query provided"}), 400
+    
+    result = rag_pipeline.search_pdf(query)
+    return jsonify(result)
+
+
 # Routes for pages
 @app.route('/')
 def index():
@@ -193,12 +229,28 @@ def prepare_input_for_llama(context):
     if not context:
         return "No user browsing history available. Please generate 5 general queries."
     
+        # Add a description of the website's purpose and content
+    website_description = (
+        """You are a specialized query generator for the Codebuddy 2.0 learning platform, which is a platform focused on learning programming, Offers courses on programming, software testing, data structures, algorithms, and other topics, resources and articles through categories and blogs."""
+    )
+    context_text = f"Website Description: {website_description}\n\n"
     context_text = "User's browsing session context:\n"
     for page in context:
         context_text += f"Page: {page['page']}\n"
         context_text += f"Topics: {', '.join(page['topics'])}\n"
         context_text += f"Importance Score: {page['importance']:.2f}\n\n"
-    context_text += "Based on the above user's interests and topics, generate 5 diverse specific queries one by one without reasoning."
+    context_text += (
+        f"""
+        Based on this detailed analysis, generate 5 queries that meet these criteria:
+
+        1. Specificity: Be specific and actionable, generate queries user may have time of course purchase.
+        2. Learning Path: Support their apparent learning goals based on browsing patterns
+        3. Return exactly 5 numbered queries (1-5)
+        4. Focus on codebuddy platform content
+        5. No explanations or additional commentary
+        6. Ensure queries are specific to programming education
+        """
+    )
     print(context_text)
     return context_text
 
