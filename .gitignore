@@ -3,3 +3,4 @@ app2.py
 __pycache__
 vectorstore/db_faiss/index.faiss
 vectorstore/db_faiss/index.pkl
+CodeBuddy 2.0.pdf
