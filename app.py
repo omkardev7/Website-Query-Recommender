@@ -19,7 +19,7 @@ page_metadata = page_metadata
 
 
 # Initialize SQLite database for tracking
-DATABASE = 'tracking.db'
+DATABASE = 'trackingdb.db'
 
 def get_db():
     if 'db' not in g:
@@ -191,8 +191,8 @@ def generate_session_context():
         db = get_db()
         cursor = db.execute('''
             SELECT page, topics, 
-                   COALESCE(time_spent, 0) as time_spent, 
-                   COALESCE(clicks, 0) as clicks
+                COALESCE(time_spent, 0) as time_spent, 
+                COALESCE(clicks, 0) as clicks
             FROM user_tracking
             WHERE session_id = ?
             ORDER BY timestamp DESC
