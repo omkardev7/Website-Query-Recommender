@@ -1,4 +1,4 @@
-## QED42-task-Query-Recommender
+## Website-Query-Recommender
 ## Overview
 
 This project simulates a **GenAI-powered recommendion system** that generates recommended queries based on a user's browsing history or session on a website. The system tracks user sessions, captures page metadata and user interactions, and generates relevant query suggestions to enhance user engagement. 
